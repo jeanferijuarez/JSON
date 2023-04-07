@@ -19,7 +19,7 @@
       <div class="row gy-3">
         <script>
             const xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "http://json.test/Php/index.php");
+            xmlhttp.open("GET", "http://json_1.test/Php/index.php");
             xmlhttp.send();
             xmlhttp.onload = function() {
                 const country = JSON.parse(this.responseText).country;
