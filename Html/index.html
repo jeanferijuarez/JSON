@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style.css">
+   
+
+    <title>Countries</title>
+</head>
+
+<body>
+
+<h1 class="title"><b><u>Country Collection</u></b></h1>
+  <div align ="center" class="profile-area">
+    <div class="container" id="card">
+      <div class="row gy-3">
+        <script>
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "http://json.test/Php/index.php");
+            xmlhttp.send();
+            xmlhttp.onload = function() {
+                const country = JSON.parse(this.responseText).country;
+                const table = document.getElementById('card');
+                if(table){
+                  for(const i in country){
+                    const row =`
+                          <div class="col-md-4 mt-5">
+                              <div class="card rgb">
+                                  <div class="img1"><img src="${country[i].country_image}" alt=""></div>
+                                  <div class="img2"><img src="${country[i].country_flag}" alt=""></div>
+                                  <div class="main-text">
+                                      <h2>${country[i].country_name}</h2>
+                                      <ul class="details">
+                                          <li>Continent:    ${country[i].continent}</li>
+                                          <li>Region:     ${country[i].region} </li>
+                                          <li>Longitude:    ${country[i].longitude}</li>
+                                          <li>Latitude:    ${country[i].latitude}</li>
+                                      </ul>
+                                      
+                                  </div>
+                              </div>
+                        </div>
+                    `;
+                    table.innerHTML += row;
+                  }
+                }
+              }
+          </script>
+        </div>
+      </div>
+  </div>
+
+  
+
+</body>
+</html> 
