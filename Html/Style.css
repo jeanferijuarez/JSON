@@ -64,6 +64,6 @@ body{
      font-style: Copperplate;
  }
  
- .card:hover .img_3 {
+ .img_3:hover .info{
      transform: rotateY(180deg);
  }
